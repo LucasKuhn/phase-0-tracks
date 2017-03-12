@@ -19,3 +19,4 @@
 * A merge conflict is when Git doesn't know what changes should be
 * made to the master branch. It happens for example when two branches
 * make different changes to the same thing.
+* [Extra answer for a question that doesn't even exist: Glenna, since I'm taggin you here anyway just wanted to say thanks for being so nice in our Intro Session and if you read this when you come back from you out of office hour, hope you had lots of fun! :D]
