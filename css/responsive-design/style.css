@@ -30,3 +30,37 @@ figcaption {
   font-style: italic;
   text-align: right;
 }
+body {
+  max-width: 960px;
+  min-width: 200px;
+  margin:auto;
+  text-align: center;
+}
+#external-links {
+  width: 15%;
+  display: inline-block;
+  vertical-align: top; 
+  background-color: red; 
+  padding: 2%;
+}
+main{
+  max-width: 756px;
+  display: inline-block;
+  background-color: blue; 
+}
+@media screen and (max-width: 974px) {
+  #external-links{
+      width: 96%;
+  }
+}
+@media screen and (max-width: 700px) {
+  img{
+    max-width:700px;
+    height:auto; 
+  }
+}
+/*@media screen and (max-width: 500px) {
+  body {
+    background-color: hotpink;
+  }
+}*/
