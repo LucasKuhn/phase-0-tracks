@@ -40,13 +40,12 @@ body {
   width: 15%;
   display: inline-block;
   vertical-align: top; 
-  background-color: red; 
-  padding: 2%;
+   padding: 2%;
 }
 main{
   max-width: 756px;
   display: inline-block;
-  background-color: blue; 
+
 }
 @media screen and (max-width: 974px) {
   #external-links{
@@ -64,3 +63,4 @@ main{
     background-color: hotpink;
   }
 }*/
+/*COMMENT HERE!*/
