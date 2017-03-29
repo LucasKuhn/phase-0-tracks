@@ -1,0 +1,31 @@
+Algorithm to start you daily routine:
+Until you hear the alarm clock:
+    -Check the time.
+    -If you missed the alarm
+        -GET UP NOW!
+    -If it is too early
+        -Enjoy a few more minutes of sleep.
+When you hear the alarm clock:
+    -Monday?
+        -Hit the snooze. You deserve 5 more minutes.
+    -Else:
+        -Get up now you lazy ass!
+After you get up:
+    -Need to pee?
+        -Do that first, then go to kitchen and drink a full glass of water.
+    -Else: 
+        -Go to kitchen and drink a full glass of water
+In the kitchen:
+    -Open fridge, forget for a second what you were doing and who you are
+    -Get sad for a moment since it's morning and grab the milk
+    -Set the milk on the table
+    -Open cabinet, get a bowl and cereal
+    -Set bowl and cereal on the table
+    -Sit down
+    -Open cereal box, pour content inside the bowl
+    -Open milk box, pour content inside the bowl
+    -Until the bowl is empty:
+        -Eat the cereal.
+    -Do Personal-Hygiene-Algorithm.txt  /*Just a pseudo-reference*/
+    -Start you day with a full belly and lots of energy!
+
