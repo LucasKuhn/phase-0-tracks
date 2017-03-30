@@ -1,16 +1,20 @@
-puts "What is your name?"
-name = gets.chomp
-puts "How old will you be the end of this year?"
-age = gets.chomp.to_i
-puts "What year were you born?"
-year = gets.chomp.to_i
-puts "Would you like some fresh garlic bread?"
-bread = gets.chomp
-puts "Are in interested in the company's health insurance?"
-insurance = gets.chomp
+puts "How many employees will be processed?"
+employees = gets.chomp.to_i
+x=0
+until x == employees 
 
-sentence = "Results inconclusive"
-loop do  
+  puts "What is your name?"
+  name = gets.chomp
+  puts "How old will you be the end of this year?"
+  age = gets.chomp.to_i
+  puts "What year were you born?"
+  year = gets.chomp.to_i
+  puts "Would you like some fresh garlic bread?"
+  bread = gets.chomp
+  puts "Are in interested in the company's health insurance?"
+  insurance = gets.chomp
+
+  sentence = "Results inconclusive"
   if age == 2017-year && (bread == 'yes' || insurance == 'yes')
     sentence = "Probably not a vampire"
   end
@@ -23,10 +27,10 @@ loop do
   if name == "Drake Cula" || name == "Tu Fang"
     sentence = "Definitely a vampire"
   end
-  break
+  puts "#{sentence}"
+  x += 1
+  
 end
-puts "#{sentence}"
-
 # STETEMENTS BELOW JUST FOR TESTING 
   # if age == 2017-year && (bread == 'yes' || insurance == 'yes')
   #   puts "Probably not a vampire."
