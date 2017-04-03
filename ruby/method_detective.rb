@@ -7,7 +7,7 @@
 "iNvEsTiGaTiOn".swapcase
 # => “InVeStIgAtIoN”
 
-# "zom".<???>
+"zom".insert(2,"o")
 # => “zoom”
 
 "enhance".rjust(11).ljust(15)
@@ -39,7 +39,7 @@ str
 # "Elementary,    my   dear        Watson!".<???>
 # => "Elementary, my dear Watson!"
 
-# "z".<???>
+"z".codepoints
 # => 122 
 # (What is the significance of the number 122 in relation to the character z?)
 
