@@ -27,7 +27,13 @@
 "The case of the disappearing last letter".chop
 # => "The case of the disappearing last lette"
 
-# "The mystery of the missing first letter".<???>
+"The mystery of the missing first letter".delete "T"
+#The next method works but would need improvement, the '39' depends on string length
+"The mystery of the missing first letter".slice(1,39)
+#Also, this below
+str="The mystery of the missing first letter"
+str.slice!(0)
+str
 # => "he mystery of the missing first letter"
 
 # "Elementary,    my   dear        Watson!".<???>
