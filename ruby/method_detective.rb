@@ -13,13 +13,13 @@
 "enhance".rjust(11).ljust(15)
 # => "    enhance    "
 
-# "Stop! You’re under arrest!".<???>
+"Stop! You’re under arrest!".upcase
 # => "STOP! YOU’RE UNDER ARREST!"
 
-# "the usual".<???>
+"the usual".insert(9, ' suspects')
 #=> "the usual suspects"
 
-# " suspects".<???>
+" suspects".strip
 # => "the usual suspects"
 
 # "The case of the disappearing last letter".<???>
