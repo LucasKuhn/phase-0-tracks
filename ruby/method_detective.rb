@@ -29,19 +29,19 @@
 
 "The mystery of the missing first letter".delete "T"
 #The next method works but would need improvement, the '39' depends on string length
-"The mystery of the missing first letter".slice(1,39)
+"The mystery of the missing first letter"[1,39]
 #Also, this below
 str="The mystery of the missing first letter"
 str.slice!(0)
 str
 # => "he mystery of the missing first letter"
 
-# "Elementary,    my   dear        Watson!".<???>
+"Elementary,    my   dear        Watson!".tr_s(' ', ' ')
 # => "Elementary, my dear Watson!"
 
 "z".codepoints
 # => 122 
 # (What is the significance of the number 122 in relation to the character z?)
 
-# "How many times does the letter 'a' appear in this string?".<???>
+"How many times does the letter 'a' appear in this string?".count "a"
 # => 4
