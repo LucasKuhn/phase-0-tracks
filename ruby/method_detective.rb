@@ -10,7 +10,7 @@
 # "zom".<???>
 # => “zoom”
 
-# "enhance".<???>
+"enhance".rjust(11).ljust(15)
 # => "    enhance    "
 
 # "Stop! You’re under arrest!".<???>
