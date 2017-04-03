@@ -20,9 +20,11 @@
 #=> "the usual suspects"
 
 " suspects".strip
+" suspects".lstrip 
 # => "the usual suspects"
 
-# "The case of the disappearing last letter".<???>
+"The case of the disappearing last letter".chomp('r')
+"The case of the disappearing last letter".chop
 # => "The case of the disappearing last lette"
 
 # "The mystery of the missing first letter".<???>
