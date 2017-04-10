@@ -1,21 +1,11 @@
-/ Take a spy name
-do the following 
--Swap first and last name
--Change all vowels (aeiou) to the 
-next vowel in 'aeiou'
--all consonants to the next consonant
-/
-
 def next_vowel (letter) 
   place = "aeiou".index(letter)
   letter = "aeioua"[place+1]
 end
-
 def next_upcase_vowel (letter)
   place = "AEIOU".index(letter)
   letter = "AEIOUA"[place+1]
 end
-
 def next_consonant (letter)
   place = "bcdfghjklmnpqrstvwxyzBCDFGHJKLMNPQRSTVWXYZ".index(letter)
   letter = "bcdfghjklmnpqrstvwxyzBCDFGHJKLMNPQRSTVWXYZB"[place+1]
@@ -23,7 +13,12 @@ end
 
 # --- DRIVER CODE --- #
 puts "Say a name and get a fake one!"
+names = {
+  original_name: [],
+  new_name: []
+}
 name = gets.chomp
+count = 0
 while name != 'quit'
   newname = name.split(' ')
   newname[0],newname[1]=newname[1],newname[0]
@@ -44,7 +39,18 @@ while name != 'quit'
     end
   }
   newname = newname.join('')
-  p newname
-  puts "Say a name and get a fake one!"
+  names[:original_name].push(name)
+  names[:new_name].push(newname)
+  puts "Fake name: #{newname}"
+  count += 1
+  puts "Say a name and get a fake one!(quit to exit)"
   name = gets.chomp
+end
+
+# I wanted to do the code below using each, but in the end I gave up and added a count to achieve the same results
+
+x=0 
+count.times do
+puts "#{names[:original_name][x]} is also known as #{names[:new_name][x]}"
+  x+=1
 end
