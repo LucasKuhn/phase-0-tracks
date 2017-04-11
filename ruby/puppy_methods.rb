@@ -7,3 +7,7 @@ class Puppy
 
 end
 
+# -- DRIVER CODE
+
+newpuppy = Puppy.new 
+
