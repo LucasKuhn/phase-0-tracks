@@ -28,9 +28,43 @@ class Puppy
   end
 end
 
-# -- DRIVER CODE
-newpuppy = Puppy.new 
-newpuppy.fetch("ball")
-newpuppy.speak(3)
-newpuppy.dog_year(8)
-newpuppy.get_beer("Heineken")
+class Swimmer
+  
+  def initialize
+    puts "initializing..."
+  end 
+  
+  def hold_breath(seconds)
+    puts "I can hold my breath for #{seconds} seconds"
+  end
+  
+  def sprint_time(seconds)
+    puts "I did the 1400 meters in #{seconds}"
+  end
+  
+end
+
+# ---- DRIVER CODE
+athletes = []
+count = 0 
+until count == 50
+  p "Starting the count..."
+  athletes[count] = Swimmer.new 
+  count += 1
+end
+
+number = 0
+athletes.each do |athlete|
+  puts "-------"
+  p "athlete[#{number}]:"
+  athlete.hold_breath(10)
+  athlete.sprint_time(20)
+  number += 1
+end
+return 0
+
+# newpuppy = Puppy.new 
+# newpuppy.fetch("ball")
+# newpuppy.speak(3)
+# newpuppy.dog_year(8)
+# newpuppy.get_beer("Heineken")
