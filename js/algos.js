@@ -36,20 +36,24 @@ console.log("The biggest word is: " + findBiggest(example)) // should print "lon
 // guy1[Object.keys(guy1)[0]] // => return first[0] key VALUE
 
 function somethingSimilar(person1,person2) {
+	var keys = Object.keys(person1)
 	var share_something = false 
-	for (key_index=0; key_index < Object.keys(person1).length; key_index++){
-		if (person1[Object.keys(person1)[key_index]] === person2[Object.keys(person2)[key_index]])
-		share_something = true
+	for (i=0; i < Object.keys(person1).length; i++){
+		if (person1[keys[i]] === person2[keys[i]]) {
+			share_something = true
+		}
 	}
 	return share_something
 }
 
 // ---- TEST CODE
-var steven = {name: "Steven", age: 54}
-var tamir = {name: "Tamir", age: 54}
-var lucas = {name: "Lucas", age: 23}
+var steven = {name: "Steven", age: 54};
+var tamir = {age: 54, name: "Tamir"};
+var lucas = {favorite_color: "blue", name: "Lucas", age: 23};
+console.log("steven and tamir have something similar?")
 console.log(somethingSimilar(steven,tamir)); // Should print TRUE
-console.log(somethingSimilar(steven,lucas)); // Should print FALSE
+console.log("lucas and steven have something similar?")
+console.log(somethingSimilar(lucas,steven)); // Should print FALSE
 
 // --- OLD DATA ---
 // if (person1.name === person2.name) {
@@ -58,6 +62,7 @@ console.log(somethingSimilar(steven,lucas)); // Should print FALSE
 // if (person1.age === person2.age) {
 // 	share_something = true	
 // }
+// if (person1[Object.keys(person1)[key_index]] === person2[Object.keys(person2)[key_index]])
 
 // ------------ RELEASE 2  ----------------
 
@@ -74,28 +79,51 @@ console.log(somethingSimilar(steven,lucas)); // Should print FALSE
 // to make it work, download that file in the same folder as this.
 require ('./wordslist.js');
 
-
-function wordsArray(size) {
+function realWords(array_size) {
 	array = []
-	for(var i=0; i < size; i++){
+	for(var i=0; i < array_size; i++){
 	var random_word = "It should be less than 10 characters!"
 	while (random_word.length >= 10) {
 		random_word = wordslist[Math.floor(Math.random() * 350000)] 
-		}; 
+		}
 	array.push(random_word);
 	}
 	return array
 }
-// the variable random_word is useful to make the while condition
-// since the sentence is bigger than 10 letters 
-// the last push will happen only if the while condition is met
+// the last push will happen only if the while condition is met,
+// so it will only take words with less than 10 length
+
+// -- UPDATE : Added a proper function to create words
+function fakeWords(array_size) {
+  array = [];
+  alphabet = "abcdefghijklmnopqrstuvwxyz";
+  for(var i=0; i < array_size; i++){
+    new_word = "";
+    var word_size = (Math.floor(Math.random()*10)+1) // It will be between 1 and 10
+    for(var j=0; j < word_size; j++){
+    	  random_letter_value = (Math.random() * alphabet.length) // It will be between 1 and 26
+    	  new_word += alphabet.charAt(random_letter_value) // Add the corresponding letter on the alphabet to the word
+        }
+    array.push(new_word);
+  }
+  return array;
+}
 
 // ---- DRIVER CODE ----
-// Loop to do it 10 times
+// Loop to do 2 real words array (Just for testing)
 for(var i=0; i < 10; i++) {
-    var words_array1 = wordsArray(3);
-    console.log("---- Array " + (i+1) + "----");
+    var words_array1 = realWords(3);
+    console.log("---- Real Words Array " + (i+1) + "----");
 	console.log(words_array1);
 	console.log("The biggest word is: " + findBiggest(words_array1));
+	console.log(" ");
+}
+
+// Loop to do 10 fake words array (The Proper Idea of the Challenge)
+for(var i=0; i < 10; i++) {
+    var words_array2 = fakeWords(3);
+    console.log("---- Fake Words Array " + (i+1) + "----");
+	console.log(words_array2);
+	console.log("The biggest word is: " + findBiggest(words_array2));
 	console.log(" ");
 }
