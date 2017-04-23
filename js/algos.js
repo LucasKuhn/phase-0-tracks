@@ -36,19 +36,21 @@ console.log("The biggest word is: " + findBiggest(example)) // should print "lon
 // guy1[Object.keys(guy1)[0]] // => return first[0] key VALUE
 
 function somethingSimilar(person1,person2) {
+	var keys = Object.keys(steven)
 	var share_something = false 
-	for (key_index=0; key_index < Object.keys(person1).length; key_index++){
-		if (person1[Object.keys(person1)[key_index]] === person2[Object.keys(person2)[key_index]])
-		share_something = true
+	for (i=0; i < Object.keys(person1).length; i++){
+		if (person1[keys[i]] === person2[keys[i]]) {
+			share_something = true
+		}
 	}
 	return share_something
 }
 
 // ---- TEST CODE
 var steven = {name: "Steven", age: 54}
-var tamir = {name: "Tamir", age: 54}
+var tamir = {age: 54, name: "Tamir", favorite_color: "blue"}
 var lucas = {name: "Lucas", age: 23}
-console.log(somethingSimilar(steven,tamir)); // Should print TRUE
+console.log(somethingSimilar(tamir,steven)); // Should print TRUE
 console.log(somethingSimilar(steven,lucas)); // Should print FALSE
 
 // --- OLD DATA ---
@@ -58,6 +60,7 @@ console.log(somethingSimilar(steven,lucas)); // Should print FALSE
 // if (person1.age === person2.age) {
 // 	share_something = true	
 // }
+// if (person1[Object.keys(person1)[key_index]] === person2[Object.keys(person2)[key_index]])
 
 // ------------ RELEASE 2  ----------------
 
@@ -92,7 +95,7 @@ function wordsArray(size) {
 
 // ---- DRIVER CODE ----
 // Loop to do it 10 times
-for(var i=0; i < 10; i++) {
+for(var i=0; i < 2; i++) {
     var words_array1 = wordsArray(3);
     console.log("---- Array " + (i+1) + "----");
 	console.log(words_array1);
