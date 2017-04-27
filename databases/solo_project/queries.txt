@@ -1,0 +1,58 @@
+---------- Display the information in one table
+
+qlite> SELECT * FROM VideoGamePlayers;
+1|Lucas|5|false|3
+2|Luigi|1|true|1
+3|Linda|2|true|3
+4|Maria|0|false|4
+5|Marco|0|true|2
+6|Nancy|3|false|5
+
+---------- Update an item that meets some condition
+
+sqlite> UPDATE VideoGamePlayers SET sleepy="true" WHERE coffe_cups=0;
+sqlite> UPDATE VideoGamePlayers SET sleepy="false" WHERE coffe_cups>=2;
+sqlite> SELECT * FROM VideoGamePlayers;
+1|Lucas|5|false|3
+2|Luigi|1|true|1
+3|Linda|2|false|3
+4|Maria|0|true|4
+5|Marco|0|true|2
+6|Nancy|3|false|5
+
+---------- Display the information in both tables using one query
+
+sqlite> SELECT * FROM VideoGamePlayers, Games WHERE VideoGamePlayers.game_id = G
+ames.id;
+1|Lucas|5|false|3|3|Overwatch
+2|Luigi|1|true|1|1|Mario Bros
+3|Linda|2|false|3|3|Overwatch
+4|Maria|0|true|4|4|Skyrim
+5|Marco|0|true|2|2|Legend of Zelda
+6|Nancy|3|false|5|5|Robot Unicorn Attack
+
+---------- Display a narrower selection of columns from both tables using one query.
+
+sqlite> SELECT VideoGamePlayers.name, Games.name FROM VideoGamePlayers JOIN Game
+s ON VideoGamePlayers.game_id = Games.id;
+Lucas|Overwatch
+Luigi|Mario Bros
+Linda|Overwatch
+Maria|Skyrim
+Marco|Legend of Zelda
+Nancy|Robot Unicorn Attack
+
+---------- Delete an item that meets some condition.
+
+(I deleted those who play Robot Unicorn)
+sqlite> DELETE FROM VideoGamePlayers WHERE game_id = 5;
+sqlite> SELECT * FROM VideoGamePlayers;
+1|Lucas|5|false|3
+2|Luigi|1|true|1
+3|Linda|2|false|3
+4|Maria|0|true|4
+5|Marco|0|true|2
+
+----------
+
+----------
