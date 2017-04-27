@@ -53,6 +53,32 @@ sqlite> SELECT * FROM VideoGamePlayers;
 4|Maria|0|true|4
 5|Marco|0|true|2
 
-----------
+---------- Try a few different joins in your database.
+
+---INNER JOIN
+SELECT * FROM VideoGamePlayers INNER JOIN Games ON VideoGamePlayers.game_id = Games.id;
+1|Lucas|5|false|3|3|Overwatch
+2|Luigi|1|true|1|1|Mario Bros
+3|Linda|2|false|3|3|Overwatch
+4|Maria|0|true|4|4|Skyrim
+5|Marco|0|true|2|2|Legend of Zelda
+
+---LEFT JOIN
+SELECT * FROM Games LEFT JOIN VideoGamePlayers ON Games.id = VideoGamePlayers.game_id;
+1|Mario Bros|2|Luigi|1|true|1
+2|Legend of Zelda|5|Marco|0|true|2
+3|Overwatch|3|Linda|2|false|3
+3|Overwatch|1|Lucas|5|false|3
+4|Skyrim|4|Maria|0|true|4
+5|Robot Unicorn Attack|||||
+6|Disney Princess|||||
+
+---RIGHT JOIN and FULL OUTER JOIN (Using sqlite3 on Windows)
+Error: RIGHT and FULL OUTER JOINs are not currently supported
+
+---LEFT EXCLUDING JOIN
+SELECT * FROM Games LEFT JOIN VideoGamePlayers ON Games.id = VideoGamePlayers.game_id WHERE VideoGamePlayers.game_id IS NULL;
+5|Robot Unicorn Attack|||||
+6|Disney Princess|||||
 
 ----------
