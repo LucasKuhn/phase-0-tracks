@@ -1,6 +1,9 @@
 #LET'S MAKE SOME CHEAT SHEETS!
 # --- The Project I envisioned is a program to make your own Cheat Sheets
 
+
+# ------ BUSINESS CODE ------
+
 #Requite Gems (SQLITE)
 require 'sqlite3'
 
@@ -8,35 +11,69 @@ require 'sqlite3'
 db = SQLite3::Database.new("cheatsheet.db")
 db.results_as_hash = true
 
-#Use Fancy Strings Delimeters to create a command
-create_table = <<-SQL 
-	CREATE TABLE IF NOT EXISTS commands (
+#Create a command to create SQL table
+def create_table (table_name)
+	"CREATE TABLE IF NOT EXISTS " + table_name + 
+	"(
 	id INTEGER PRIMARY KEY,
 	title VARCHAR(255),
 	code VARCHAR(255)
-	)
-SQL
-#Create the content table using the super-fancy command
-db.execute(create_table)
-
-#Add persistent content to table 
-#db.execute("INSERT INTO commands (title,code) VALUES ('To display tables','.tables')")
-
-#Show the content on the table
-# --- All The content
-commands = db.execute("SELECT * FROM commands")
-puts commands.class
-p commands
-commands.each do |command|
-	puts "----"
-	puts "#{command['id']}: #{command['title']}"
-	puts "#{command['code']}"
+	)"
 end
-# --- Only selected content
 
-#Write the content to an HTML file
+#Add persistent content to table (in the sql database)
+def add_to (table_name,title,code)
+	"INSERT INTO " + table_name + 
+	"(title,code) VALUES 
+	('" + title + "','" + code + "')"
+end
+
+# ------ DRIVER CODE ------
+
+#Display Current Tables (Cheat Sheets)
+tables = db.execute("SELECT name FROM sqlite_master WHERE type='table'")
+puts "Current sheets:"
+tables.each do |table|
+	puts "#{table['name']}"
+end
+
+puts "SELECT A SHEET:"
+table_name = gets.chomp
+
+puts "SELECT AN OPTION"
+puts "1. See content"
+puts "2. Add content"
+option = gets.chomp.to_i
+
+if option == 1 
+	#Show the content of the tables
+	commands = db.execute("SELECT * FROM " + table_name)
+	commands.each do |command|
+		puts "----"
+		puts "#{command['id']}: #{command['title']}"
+		puts "#{command['code']}"
+		end
+end
+
+if option == 2
+	#Create the content table (if it doesnt exist)
+	db.execute(create_table(table_name))
+	puts "What does the code do?"
+	title = gets.chomp
+	puts "What is the code?"
+	code = gets.chomp
+	#Add content to table
+	db.execute(add_to(table_name,title,code))
+end
+
+# ------ TO DO LIST ------
+
+#Make the content be written in an HTML file
 #--- Read more about IO Class
 
-#Create a GitHub Page for it
-#--- Look for: GH Project Page
+#Add some pretty CSS to make things look good
 
+#Add an option to open the local HTML file
+
+#Upload it and create a GitHub Page for it
+#--- Look for: GH Project Page
