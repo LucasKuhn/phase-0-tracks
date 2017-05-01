@@ -2,6 +2,7 @@
 # --- The Project I envisioned is a program to make your own Cheat Sheets
 
 #Requite Gems (SQLITE)
+require 'sqlite3'
 
 #Create SQL Database
 db = SQLite3::Database.new("cheatsheet.db")
@@ -19,13 +20,18 @@ SQL
 db.execute(create_table)
 
 #Add persistent content to table 
-db.execute("INSERT INTO commands (title,code) VALUES ('To display tables','.tables')")
+#db.execute("INSERT INTO commands (title,code) VALUES ('To display tables','.tables')")
 
 #Show the content on the table
 # --- All The content
 commands = db.execute("SELECT * FROM commands")
 puts commands.class
-
+p commands
+commands.each do |command|
+	puts "----"
+	puts "#{command['id']}: #{command['title']}"
+	puts "#{command['code']}"
+end
 # --- Only selected content
 
 #Write the content to an HTML file
