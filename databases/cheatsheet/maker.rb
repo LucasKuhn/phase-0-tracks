@@ -37,10 +37,10 @@ tables.each do |table|
 	puts "#{table['name']}"
 end
 
-puts "SELECT A SHEET:"
+puts "SELECT A SHEET (or type new name):"
 table_name = gets.chomp
 
-puts "SELECT AN OPTION"
+puts "SELECT AN OPTION:"
 puts "1. See content"
 puts "2. Add content"
 option = gets.chomp.to_i
